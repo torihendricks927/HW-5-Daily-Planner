@@ -1,0 +1,18 @@
+* {
+    background-color: rgb(210, 210, 231);
+    color: darkblue;
+}
+
+header {
+    color: lightskyblue;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.table {
+    color: darkslateblue;
+}
+
+.border {
+    color: 1px solid darkblue;
+}
