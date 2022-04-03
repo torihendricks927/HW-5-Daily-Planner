@@ -92,27 +92,19 @@ container.on('click', "button", function(event) {
     calendar[index]["task"]=$(".note").eq(index).val();
     console.log($(".note").eq(index))
     console.log(calendar)
-})
+});
 
 
 
 
 function storeInfo() {
-     localStorage.setItem("storedInfo", JSON.stringify(calendar));
+    localStorage.setItem("storedInfo", JSON.stringify(calendar));
  };
 
  function getInfo() {
-    calendar = JSON.parse(localStorage.getItem("storedInfo"));
-    
+    calendar = JSON.parse(localStorage.getItem("getInfo"));
      
  }
-
-
-
-
-
-
-
 
 
 init();
