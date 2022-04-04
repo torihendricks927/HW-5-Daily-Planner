@@ -18,7 +18,6 @@ function init(){
  $("#Time").text(reformatDate);
 
 
-
 //Timeblock creates row for each hour
 function timeblock() {
 var now = moment().format("H");
@@ -31,7 +30,7 @@ calendar.forEach(function(ele,index){
     } else {
         rowDiv.classList.add("present")
     }
-
+// created row in function so it would be more dynamic
     var row = `<div class="row">
 <div class="col-2 text-right p-3"> ${ele.hour} </div>
 <input data-index="${index}" id="${ele.hour}" type="text" value="${ele.task}" class="bg-secondary col border p-3 note colorcode">
@@ -39,9 +38,6 @@ calendar.forEach(function(ele,index){
     <i class="far fa-save"></i>
 </button>
 </div>`;
-// var inputID = '#'+ele.hour;
-// console.log(inputID)
-// $("#"+ele.hour).val(calendar[index]["task"]);
 rowDiv.innerHTML = row;
 $(ele.hour).val(ele.task);
 console.log(ele.task)
@@ -49,7 +45,7 @@ container.append(rowDiv);
 }
 )};
 
-
+// eventlistener fxn to create save button
 container.on('click', "button", function(event) {
     console.log("click")
     // event.PreventDefault();
@@ -60,6 +56,7 @@ console.log(index)
    
 });
 
+// fxn to actually save text within that input row
 function saveText(index) {
     calendar[index]["task"]=$(".note").eq(index).val();
     console.log($(".note").eq(index).val())
@@ -67,16 +64,14 @@ function saveText(index) {
     storeInfo();
 };
 
-
-
-
+// storing input placed by user
 function storeInfo() {
     localStorage.setItem("storedInfo", JSON.stringify(calendar));
  };
 
+//  retrieving info save by user, if first time being used, it provides blank planner
  function getInfo() {
     calendar = JSON.parse(localStorage.getItem("storedInfo"));
-
     if(!calendar) {
         calendar = [
             {
